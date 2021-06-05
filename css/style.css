@@ -34,7 +34,7 @@
 	++++Media ++++
 */
 /*-------------Import fonts ---------------------------------------*/
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900|Cabin:400,700|Droid+Serif:400,700|Playball|Oswald:300,400|Roboto+Condensed);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900|Cabin:400,700|Droid+Serif:400,700|Playball|Oswald:300,400|Roboto+Condensed|Open+Sans:300,400,600,800);
 /*-------------General Style---------------------------------------*/
 html{
 	overflow-x:hidden !important;
@@ -47,9 +47,10 @@ body{
 	font-weight: 400;
 	font-size: 12px;
 	color: #4a4646;
-	background-color:#191919;
+	background-color: #e2133a;
 	height:100%;
 	text-align:center;
+        background-image: url("../images/tile-pattern.png");
 }
 @-o-viewport {width: device-width;}
 @-ms-viewport {width: device-width;}
@@ -112,6 +113,7 @@ blockquote p {
 	line-height:50px;
 	color:#fff;
 }
+
 .loader img{
 	-webkit-animation: pulse 1s infinite linear;
 	-moz-animation: pulse 1s infinite linear;
@@ -153,6 +155,13 @@ blockquote p {
   }
 }
 
+
+.heartBeat{
+	-webkit-animation: pulse 1s infinite linear;
+	-moz-animation: pulse 1s infinite linear;
+	-o-animation: pulse 1s infinite linear;
+	animation: pulse 1s infinite linear
+}
 
 
 
@@ -458,14 +467,15 @@ header{
 }
 .logo-notvis {
 	position:absolute;
-	top:0;
-	left:0;
-	z-index:2;
-	opacity:0;
+	top: -5px;
+	left: 0;
+	z-index: 2;
+	opacity: 0;
+        width: 210px;
 	-webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
+        -moz-transition: all 300ms linear;
+        -o-transition: all 300ms linear;
+        -ms-transition: all 300ms linear;
     transition: all 300ms linear;
 	opacity:0;
 }
@@ -780,6 +790,8 @@ header.sticky nav a , header.sticky .subnav a  , header.flat-header .nav-social 
 	width:100%;
 	height:100%;
 	overflow:hidden;
+        background-color: red;
+        background-image: url("../images/tile-pattern.png");
 }
 .fullheight-carousel-holder .customNavigation {
 	position:absolute;
@@ -866,14 +878,12 @@ header.sticky nav a , header.sticky .subnav a  , header.flat-header .nav-social 
 	font-size:18px;
 }
 .hero-title h3 {
-	font-size: 44px;
-	letter-spacing:2px;
+	font-size: 48px;
 	position:relative;
 	width:100%;
 	margin-bottom:10px;
 	color:#fff;	
 	font-weight:bold;
-	letter-spacing:3.5px;
 	padding:10px 0;
 	font-family: 'Playball', cursive;
 }
@@ -2664,6 +2674,7 @@ article h4 a:hover {
 	float:left;
 	font-size:13px;
 	width:100%;
+        color: unset;
 }
 .contact-details ul li a:hover {
 	text-decoration:underline;
@@ -2845,11 +2856,27 @@ article h4 a:hover {
 	float:left;
 }
 /*------  Responsive ------------------------------------------------------*/
+
+@media only screen and  (min-width: 750px) {
+      	.z_phone{
+		font-size: 21px !important;
+    		font-weight: bold !important;
+    		font-family: 'Roboto', sans-serif !important;	
+	}
+	
+	.z_mail{
+	    font-size: 18px !important;
+	    font-weight: 300 !important;
+	    font-family: 'Roboto', sans-serif !important;	
+	}
+}
+
 @media only screen and  (max-width: 1536px) {
 .menu-bg {
 	width:50%;
 	height:80%;
 }
+
 }
 @media only screen and  (max-width: 1036px) {
 .mob-bg {
@@ -2892,7 +2919,7 @@ nav li a.act-link:before , nav li a.act-link:after {
 	padding:50px;
 }
 .hero-title h3 {
-	font-size: 24px;
+	font-size: 36px;
 }
 .hero-title h4 {
 	font-size: 14px
@@ -2971,6 +2998,39 @@ nav a:before , nav a:after , .work-time:before , .hero-title h4:before , .hero-t
 
 
 /* CUSTOM ADDITIONS */
+
+.warningBanner{
+    position: absolute;
+    z-index: 100;
+    bottom: 5%;
+    right: 5%;
+    max-width: 280px;
+    width: 100%;
+    min-height: 80px;
+    background: #555;
+    color: #FFF;
+    padding: 10px;
+    text-align: left;
+    border: 2px solid #3c3b3b;
+    border-radius: 4px;
+    font-size: 16px;  
+}
+
+.warningClose{
+    width: 15px;
+    height: 15px;
+    color: #bfbfbf;
+    background: #FFF;
+    padding: 0 5px;
+    border-radius: 50%;
+    font-size: 11px;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+
 .readable-para{
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
@@ -2990,6 +3050,7 @@ nav a:before , nav a:after , .work-time:before , .hero-title h4:before , .hero-t
 }
 
 
+
 .opening-soon{
 	font-size: 8px;
     text-transform: uppercase;
@@ -3003,3 +3064,259 @@ nav a:before , nav a:after , .work-time:before , .hero-title h4:before , .hero-t
     color: #FFF;
 }
 
+a{
+    text-decoration: none !important;
+}
+
+
+/* DOWNLOAD APP AREA */
+.bg-grad-mojito {
+    background: #68e9b6;
+    background: -webkit-linear-gradient(-125deg, #68e9b6, #4e75b9); 
+    background: -o-linear-gradient(-125deg, #68e9b6, #4e75b9); 
+    background: -moz-linear-gradient(-125deg, #68e9b6, #4e75b9); 
+    background: linear-gradient(-125deg, #68e9b6, #4e75b9); 
+}
+
+.pb75   { padding-bottom: 75px; } 
+.pt75   { padding-top: 75px; } 
+.pt100  { padding-top: 100px; }
+.mb50   { margin-bottom: 50px; } 
+.mt50 { margin-top: 50px; }
+.color-light    { color: #ffffff !important; }
+.alpha8     { opacity: .8 !important; }
+
+.content-box h4{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal !important;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+h3 small { font-size: 70%; }
+
+
+small {
+    font-size: 90%;
+    opacity: .7;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+#features h3{
+    font-size: 28px;
+    line-height: 35px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+#features p {
+    font-family: 'Open Sans', sans-serif !important;
+    margin: 0 0 25px 0;
+    font-size: 13px;
+    line-height: 25px;
+}
+
+
+#features h3, #features h4, #features p{
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+
+/*  ----------------------------------------------------
+9. CONTENT BOX
+-------------------------------------------------------- */
+.content-box {
+    display: block;
+    float: left;
+    width: 100%;
+}
+.content-box-o {
+    border: 1px solid #ddd;
+    padding: 25px 0 10px 0;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+}
+.content-box-o-no-border {
+    border: 0;
+    padding: 25px 0 10px 0;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+}
+.content-box.content-box-center {
+    text-align: center;
+    float: none !important;
+}
+.content-box.content-box-left {
+    text-align: left;
+}
+.content-box.content-box-right {
+    text-align: right;
+}
+.content-box.content-box-inverse h5 {
+    color: #fff;
+}
+.content-box.content-box-inverse p {
+    color: #ccc;
+}
+.content-box.content-box-center span,
+.content-box.content-box-center i,
+.content-box.content-box-left span,
+.content-box.content-box-left i,
+.content-box.content-box-right span,
+.content-box.content-box-right i {
+    margin: 0 auto;
+    font-size: 40px;
+}
+.content-box.content-box-left span,
+.content-box.content-box-left i {
+    margin-left: 0;
+}
+.content-box.content-box-right span,
+.content-box.content-box-right i {
+    margin-right: 0;
+}
+.content-box.content-box-icon-o span,
+.content-box.content-box-icon-o i,
+.content-box.content-box-icon span,
+.content-box.content-box-icon i {
+    display: block;
+    width: 75px;
+    height: 75px;
+    padding-top: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+    font-size: 35px;
+}
+.content-box.content-box-icon-o-circle span,
+.content-box.content-box-icon-o-circle i,
+.content-box.content-box-icon-circle span,
+.content-box.content-box-icon-circle i {
+    display: block;
+    width: 80px;
+    height: 80px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    -webkit-border-radius: 100px;
+       -moz-border-radius: 100px;
+            border-radius: 100px;
+}
+.content-box-icon-circle,
+.content-box-icon-o-circle {
+    font-size: 35px;
+}
+.content-box.content-box-icon span,
+.content-box.content-box-icon i,
+.content-box.content-box-icon-circle span,
+.content-box.content-box-icon-circle i {
+    color: #fff;
+}
+.content-box.content-box-icon-o span,
+.content-box.content-box-icon-o i,
+.content-box.content-box-icon-o-circle span,
+.content-box.content-box-icon-o-circle i {
+    border-width: 1px;
+    border-style: solid;
+}
+
+/* Float Left Icon */
+.content-box.content-box-left-icon span,
+.content-box.content-box-left-icon i {
+    float: left;
+    margin: 0 15px 0 0;
+    font-size: 40px;
+}
+.content-box.content-box-left-icon h4,
+.content-box.content-box-left-icon h5 {
+    float: left;
+}
+.content-box.content-box-left-icon p {
+    margin-top: 10px;
+    float: left;
+}
+
+.content-box-left-icon.content-box-icon span, .content-box-left-icon.content-box-icon i, /* icon with rounded background */
+.content-box-left-icon.content-box-icon-o span, .content-box-left-icon.content-box-icon-o i, /* icon with rounded transparent background */
+.content-box-left-icon.content-box-icon-circle span, .content-box-left-icon.content-box-icon-circle i, /* icon with circle background */
+.content-box-left-icon.content-box-icon-o-circle span, .content-box-left-icon.content-box-icon-o-circle i /* icon with circle transparent background */
+{
+    margin-bottom: 50px;
+    position: absolute;
+    top: 5px;
+}
+.content-box-left-icon.content-box-icon h5,
+.content-box-left-icon.content-box-icon-o h5,
+.content-box-left-icon.content-box-icon-circle h5,
+.content-box-left-icon.content-box-icon-o-circle h5,
+.content-box-left-icon.content-box-icon h4,
+.content-box-left-icon.content-box-icon-o h4,
+.content-box-left-icon.content-box-icon-circle h4,
+.content-box-left-icon.content-box-icon-o-circle h4
+{
+    margin: 0 0 0 90px;
+    float: left;
+}
+.content-box-left-icon.content-box-icon p,
+.content-box-left-icon.content-box-icon-o p,
+.content-box-left-icon.content-box-icon-circle p,
+.content-box-left-icon.content-box-icon-o-circle p
+{
+    float: left;
+    margin: 10px 0 0 90px;
+}
+
+/* Float Right Icon */
+.content-box.content-box-right-icon {
+    text-align: right;
+}
+.content-box.content-box-right-icon span,
+.content-box.content-box-right-icon i {
+    float: right;
+    margin: 0 15px 0 0;
+    font-size: 40px;
+}
+.content-box.content-box-right-icon h4,
+.content-box.content-box-right-icon h5 {
+    margin-right: 80px;
+}
+.content-box.content-box-right-icon p {
+    margin-top: 10px;
+    margin-right: 20px;
+    float: right;
+}
+
+.content-box-right-icon.content-box-icon span, .content-box-right-icon.content-box-icon i, /* icon with rounded background */
+.content-box-right-icon.content-box-icon-o span, .content-box-right-icon.content-box-icon-o i, /* icon with rounded transparent background */
+.content-box-right-icon.content-box-icon-circle span, .content-box-right-icon.content-box-icon-circle i, /* icon with circle background */
+.content-box-right-icon.content-box-icon-o-circle span, .content-box-right-icon.content-box-icon-o-circle i /* icon with circle transparent background */
+{
+    margin-bottom: 50px;
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+.content-box-right-icon.content-box-icon h4,
+.content-box-right-icon.content-box-icon-o h4,
+.content-box-right-icon.content-box-icon-circle h4,
+.content-box-right-icon.content-box-icon-o-circle h4,
+.content-box-right-icon.content-box-icon h5,
+.content-box-right-icon.content-box-icon-o h5,
+.content-box-right-icon.content-box-icon-circle h5,
+.content-box-right-icon.content-box-icon-o-circle h5 {
+    margin: 0 100px 0 0;
+    float: right;
+}
+.content-box-right-icon.content-box-icon p,
+.content-box-right-icon.content-box-icon-o p,
+.content-box-right-icon.content-box-icon-circle p,
+.content-box-right-icon.content-box-icon-o-circle p {
+    margin: 10px 100px 0 0;
+}
