@@ -744,7 +744,7 @@ function initGoogleReviewBar() {
 
     card.addClass("is-loading");
 
-    closeButton.on("click", function(event) {
+    card.on("click", ".google-review-bar__close", function(event) {
         event.preventDefault();
         event.stopPropagation();
         setCookie(dismissCookieName, "1", 7);

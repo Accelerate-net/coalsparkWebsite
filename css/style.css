@@ -804,22 +804,23 @@ body.review-bar-ready .google-review-bar:hover,
 }
 .google-review-bar__close {
 	position:absolute;
-	top:-10px;
-	left:-10px;
-	width:28px;
-	height:28px;
+	top:-12px;
+	left:-12px;
+	width:32px;
+	height:32px;
 	border:2px solid #fff;
 	border-radius:50%;
 	background:#fff;
 	color:#1f1f1f;
-	font-size:12px;
+	font-size:14px;
 	font-weight:700;
-	line-height:24px;
+	line-height:28px;
 	text-align:center;
 	padding:0;
-	z-index:10;
+	z-index:100;
 	cursor:pointer;
-	box-shadow:0 4px 12px rgba(0,0,0,0.15);
+	pointer-events:auto !important;
+	box-shadow:0 4px 12px rgba(0,0,0,0.2);
 	-webkit-transition:all 220ms ease;
 	transition:all 220ms ease;
 }
