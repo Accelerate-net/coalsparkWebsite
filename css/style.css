@@ -3258,7 +3258,7 @@ article h4 a:hover {
 	display:block;
 }
 .nav-button-holder  {
-	display:block;
+	display:none;
 }
 .nav-holder {
 	position:absolute;
