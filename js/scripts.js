@@ -588,6 +588,7 @@ function initLambert() {
             var vimeoPlayer = new Vimeo.Player(l);
             vimeoPlayer.ready().then(function() {
                 vimeoPlayer.setVolume(0);
+                vimeoPlayer.play();
             });
         } else if (typeof $f !== 'undefined') {
             var m = $f(l);
