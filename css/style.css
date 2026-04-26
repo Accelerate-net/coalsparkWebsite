@@ -925,6 +925,16 @@ body.review-bar-ready .google-review-bar:hover,
 .google-review-bar.is-loading .google-review-bar__reviews {
 	color:#8b8b8b;
 }
+/* Store Section Layout */
+#coalsparkContactUs .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#coalsparkContactUs .row > [class*='col-'] {
+    display: flex;
+}
+
 .store-card {
 	background:linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(249,245,239,0.94) 100%);
 	border-radius:24px;
@@ -937,6 +947,9 @@ body.review-bar-ready .google-review-bar:hover,
 	transition:transform 300ms ease, box-shadow 300ms ease;
 	-webkit-animation:storeCardFadeUp 600ms ease both;
 	animation:storeCardFadeUp 600ms ease both;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 .store-card:hover {
 	-webkit-transform:translateY(-8px);
@@ -974,6 +987,9 @@ body.review-bar-ready .google-review-bar:hover,
 .store-card__body {
 	padding:24px 24px 26px;
 	text-align:left;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 .store-card__body h4 {
 	font-size:24px;
@@ -989,10 +1005,12 @@ body.review-bar-ready .google-review-bar:hover,
 	margin-bottom:14px;
 }
 .store-card__actions {
+	padding-top:14px;
+	border-top:1px solid rgba(0,0,0,0.05);
 	display:flex;
-	align-items:center;
 	justify-content:space-between;
-	gap:12px;
+	align-items:center;
+    margin-top: auto;
 }
 .store-card__body a {
 	display:inline-block;
@@ -1011,7 +1029,7 @@ body.review-bar-ready .google-review-bar:hover,
 	margin-left:auto;
 	white-space:nowrap;
 	font-size:13px;
-	color:#7f6d60;
+	color:#d1c08e !important;
 	border-bottom-color:rgba(127,109,96,0.25);
 }
 .store-card__directions i {
@@ -2192,6 +2210,11 @@ article {
 .cart-totals  button:hover {
 	color:#fff;
 }
+
+.store-card__body h4 {
+	color: #30403b !important;
+}
+
 /*------ Footer  ------------------------------------------------*/
 footer {
 	float:left;

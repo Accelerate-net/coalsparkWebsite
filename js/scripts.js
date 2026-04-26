@@ -6,6 +6,7 @@ $(window).load(function() {
             opacity: "1"
         }, 500);
         $("body").addClass("review-bar-ready");
+        initGoogleReviewBar();
     });
 });
 // all functions ------------------
@@ -813,6 +814,5 @@ function initparallax() {
 }
 $(document).ready(function() {
     initLambert();
-    initGoogleReviewBar();
     initparallax();
 });
