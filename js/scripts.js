@@ -553,22 +553,22 @@ function initLambert() {
     updateStickyHeader();
 	// video ------------------
     $(".video-container").css("width", $(window).width() + "px");
-    $(".video-container ").css("height", parseInt(720 / 1280 * $(window).width()) + "px");
+    $(".video-container ").css("height", parseInt(3 / 4 * $(window).width()) + "px");
     if ($(".video-container").height() < $(window).height()) {
         $(".video-container ").css("height", $(window).height() + "px");
-        $(".video-container").css("width", parseInt(1280 / 720 * $(window).height()) + "px");
+        $(".video-container").css("width", parseInt(4 / 3 * $(window).height()) + "px");
     }
     $(".video-holder").height($(".media-container").height());
     if ($(window).width() > 1024) {
-        if ($(".video-holder").size() > 0) if (($(".media-container").height() + 150) / 9 * 16 > $(".media-container").width()) {
-            $("iframe ").height($(".media-container").height() + 150).width(($(".media-container").height() + 150) / 9 * 16);
+        if ($(".video-holder").size() > 0) if (($(".media-container").height() + 150) / 3 * 4 > $(".media-container").width()) {
+            $("iframe ").height($(".media-container").height() + 150).width(($(".media-container").height() + 150) / 3 * 4);
             $("iframe").css({
                 "margin-left": -1 * $("iframe").width() / 2 + "px",
                 top: "-75px",
                 "margin-top": "0px"
             });
         } else {
-            $("iframe").width($(window).width()).height($(window).width() / 16 * 9);
+            $("iframe").width($(window).width()).height($(window).width() / 4 * 3);
             $("iframe ").css({
                 "margin-left": -1 * $("iframe").width() / 2 + "px",
                 "margin-top": -1 * $("iframe").height() / 2 + "px",
@@ -582,10 +582,20 @@ function initLambert() {
         $(".video-holder").height($(".media-container").height());
         $("iframe").height($(".media-container").height());
     }
-    var l = $(".vimeo-player")[0], m = $f(l), n = $(".status");
-    m.addEvent("ready", function() {
-        m.api("setVolume", 0);
-    });
+    var l = $(".vimeo-player")[0];
+    if (l) {
+        if (window.Vimeo && Vimeo.Player) {
+            var vimeoPlayer = new Vimeo.Player(l);
+            vimeoPlayer.ready().then(function() {
+                vimeoPlayer.setVolume(0);
+            });
+        } else if (typeof $f !== 'undefined') {
+            var m = $f(l);
+            m.addEvent("ready", function() {
+                m.api("setVolume", 0);
+            });
+        }
+    }
     $(".triangle-decor").append('<svg x="0px" y="0px" width="100%" height="15px"><defs><pattern id="bottom-divider" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse"><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M7.504-0.008l7.504,7.504L7.504,15L0,7.496L7.504-0.008z"></path></pattern></defs><rect x="0" y="0" width="100%" height="15" fill="url(#bottom-divider)"></rect></svg>');
     $(".header-inner .container").append('<div class="nav-button-holder"><div class="nav-button vis-m"><span></span><span></span><span></span></div></div>');
 	// navigation------------------
