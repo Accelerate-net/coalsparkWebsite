@@ -5,6 +5,7 @@ $(window).load(function() {
         $("#main").animate({
             opacity: "1"
         }, 500);
+        $("body").addClass("review-bar-ready");
     });
 });
 // all functions ------------------
@@ -280,78 +281,15 @@ function initLambert() {
             values: [ {
                 latLng: [ 12.9968605, 80.25618 ],
                 data: {
-                    "name": "Zaitoon Adyar",
-                    "address": "#1 Vantage Building, Near Adyar Bus Depot",
-                    "phone": "+91 72999 39971 | +91 90033 83444",
-                    "reservationURL": "https://www.zaitoon.restaurant/booktable?ADYAR"
+                    "name": "Adyar",
+                    "address": "Address",
+                    "phone": "Mobile",
+                    "reservationURL": "url"
                 },
                 options: {
                     icon: "images/marker.png"
                 }
-            },
-            {
-                latLng: [ 12.973097, 80.21974 ],
-                data: {
-                    "name": "Zaitoon Velachery",
-                    "address": "362, Velachery Main Road, Opp. Grand Mall",
-                    "phone": "+91 444 20 20 222 | +91 444 20 20 111",
-                    "reservationURL": "https://www.zaitoon.restaurant/booktable?VELACHERY"
-                },
-                options: {
-                    icon: "images/marker.png"
-                }
-            },
-            {
-                latLng: [ 13.0598364362,80.2521255612 ],
-                data: {
-                    "name": "Zaitoon Nungambakkam",
-                    "address": "13/33, Shafee Mohammed Road, Opp. Apollo Children's Hospital",
-                    "phone": "+91 7299 001 009 | +91 444 315 07 07",
-                    "reservationURL": "https://www.zaitoon.restaurant/booktable?NUNGAMBAKKAM"
-                },
-                options: {
-                    icon: "images/marker.png"
-                }
-            }
-            ,{
-                latLng: [ 13.0834778466,80.2254922315 ],
-                data: {
-                    "name": "Zaitoon Anna Nagar",
-                    "address": "119, D Block, 1st Main Road, Chintamani, Anna Nagar East",
-                    "phone": "+91 7401 444 555 | +91 8124 00 11 00",
-                    "reservationURL": "https://www.zaitoon.restaurant/booktable?ANNANAGAR"
-                },
-                options: {
-                    icon: "images/marker.png"
-                }
-            },
-            {
-                latLng: [ 12.9853483,80.2341015 ],
-                data: {
-                    "name": "Zaitoon IIT Madras",
-                    "address": "Opp. Saraswathi Hostel, IITM Campus",
-                    "phone": "+91 72999 39974",
-                    "reservationURL": "https://www.zaitoon.restaurant/booktable?IITMADRAS"
-                },
-                options: {
-                    icon: "images/marker.png"
-                }
-            },
-            {
-                latLng: [ 13.0585466733,80.2655020729 ],
-                data: {
-                    "name": "Zaitoon Royapettah",
-                    "address": "#35, Woods Road, Near Express Avenue Mall",
-                    "phone": "+91 44 286 12 777 | +91 44 286 11 777",
-                    "reservationURL": "https://www.zaitoon.restaurant/booktable?ROYAPETTAH"
-                },
-                options: {
-                    icon: "images/marker.png"
-                }
-            }
-
-
-            ],
+            }],
             options: {
                 draggable: false
             },
@@ -587,19 +525,32 @@ function initLambert() {
         4: '<i class="fa fa-warning"></i> E-mail address is not valid.',
         5: '<i class="fa fa-warning"></i> E-mail address is not valid.'
     };
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 150) {
+    function updateStickyHeader() {
+        var headerHeight = $("header").outerHeight() || 0;
+        var discoverTop = $("#sec1").length ? $("#sec1").offset().top : 0;
+        var stickyTrigger = discoverTop ? Math.max(discoverTop - headerHeight - 10, 120) : 150;
+        if ($(window).scrollTop() >= stickyTrigger) {
             $("header").addClass("sticky");
+            $(".header-inner").css({
+                background: "linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.82) 78%, rgba(255,255,255,0.62) 100%)",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.08)"
+            });
             setTimeout(function() {
                 $(".logo-holder").addClass("logo-sticky");
             }, 350);
         } else {
             $("header").removeClass("sticky");
+            $(".header-inner").css({
+                background: "transparent",
+                boxShadow: "none"
+            });
             setTimeout(function() {
                 $(".logo-holder").removeClass("logo-sticky");
             }, 350);
         }
-    });
+    }
+    $(window).on("scroll resize", updateStickyHeader);
+    updateStickyHeader();
 	// video ------------------
     $(".video-container").css("width", $(window).width() + "px");
     $(".video-container ").css("height", parseInt(720 / 1280 * $(window).width()) + "px");
@@ -661,6 +612,154 @@ function initLambert() {
 	});
 }
 
+function initGoogleReviewBar() {
+    "use strict";
+    var config = window.googleReviewBarConfig || {};
+    var card = $(".google-review-bar");
+    if (!card.length) {
+        return;
+    }
+    var cardLink = card.find(".google-review-bar__link");
+    var fallbackUrl = config.mapsLink || cardLink.attr("href") || "#";
+    var score = card.find(".google-review-bar__score");
+    var reviews = card.find(".google-review-bar__reviews");
+    var starsFill = card.find(".google-review-bar__stars-fill");
+    var closeButton = card.find(".google-review-bar__close");
+    var dismissCookieName = "coalspark_review_bar_dismissed";
+
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/; SameSite=Lax";
+    }
+
+    function getCookie(name) {
+        var nameEq = name + "=";
+        var cookies = document.cookie.split(";");
+        var i;
+        for (i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            while (cookie.charAt(0) === " ") {
+                cookie = cookie.substring(1, cookie.length);
+            }
+            if (cookie.indexOf(nameEq) === 0) {
+                return cookie.substring(nameEq.length, cookie.length);
+            }
+        }
+        return null;
+    }
+
+    function showCard() {
+        if (getCookie(dismissCookieName)) {
+            card.addClass("is-dismissed");
+            return;
+        }
+        card.removeClass("is-dismissed");
+        card.addClass("is-visible");
+    }
+
+    function applyRating(ratingValue, reviewCount, destinationUrl) {
+        var safeRating = Math.max(0, Math.min(5, Number(ratingValue) || 0));
+        var formattedRating = safeRating.toFixed(1);
+        var formattedCount = Number(reviewCount || 0).toLocaleString("en-IN");
+
+        score.text(formattedRating);
+        reviews.text(formattedCount + " reviews");
+        starsFill.css("width", safeRating / 5 * 100 + "%");
+        cardLink.attr("href", destinationUrl || fallbackUrl);
+        card.removeClass("is-loading");
+        showCard();
+    }
+
+    function setFallbackState() {
+        cardLink.attr("href", fallbackUrl);
+        score.text("4.6");
+        reviews.text("View on Google Maps");
+        starsFill.css("width", 4.6 / 5 * 100 + "%");
+        card.removeClass("is-loading");
+        showCard();
+    }
+
+    function fetchPlaceDetails(placeId) {
+        return fetch("https://places.googleapis.com/v1/places/" + encodeURIComponent(placeId), {
+            method: "GET",
+            headers: {
+                "X-Goog-Api-Key": config.apiKey,
+                "X-Goog-FieldMask": "rating,userRatingCount,googleMapsUri,displayName"
+            }
+        }).then(function(response) {
+            if (!response.ok) {
+                throw new Error("Place details request failed");
+            }
+            return response.json();
+        });
+    }
+
+    function resolvePlaceId() {
+        if (config.placeId) {
+            return Promise.resolve({
+                id: config.placeId
+            });
+        }
+        if (!config.textQuery) {
+            return Promise.reject(new Error("Google review bar text query missing"));
+        }
+        return fetch("https://places.googleapis.com/v1/places:searchText", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Goog-Api-Key": config.apiKey,
+                "X-Goog-FieldMask": "places.id,places.googleMapsUri,places.displayName"
+            },
+            body: JSON.stringify({
+                textQuery: config.textQuery,
+                maxResultCount: 1
+            })
+        }).then(function(response) {
+            if (!response.ok) {
+                throw new Error("Place search request failed");
+            }
+            return response.json();
+        }).then(function(data) {
+            if (!data.places || !data.places.length || !data.places[0].id) {
+                throw new Error("No Google place match found");
+            }
+            return data.places[0];
+        });
+    }
+
+    card.addClass("is-loading");
+
+    closeButton.on("click", function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        setCookie(dismissCookieName, "1", 7);
+        card.addClass("is-dismissed").removeClass("is-visible");
+    });
+
+    if (getCookie(dismissCookieName)) {
+        card.addClass("is-dismissed");
+        return;
+    }
+
+    if (!config.apiKey) {
+        setFallbackState();
+        return;
+    }
+
+    resolvePlaceId().then(function(place) {
+        return fetchPlaceDetails(place.id).then(function(details) {
+            applyRating(details.rating, details.userRatingCount, details.googleMapsUri || fallbackUrl);
+        });
+    }).catch(function() {
+        setFallbackState();
+    });
+}
+
 function initparallax() {
     var a = {
         Android: function() {
@@ -701,5 +800,6 @@ function initparallax() {
 }
 $(document).ready(function() {
     initLambert();
+    initGoogleReviewBar();
     initparallax();
 });

@@ -1,82 +1,628 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coming Soon - [Restaurant Name]</title>
-  <style>
-    /* Global Styles */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #FFF;
-      color: #000;
-    }
-    .container {
-      max-width: 800px;
-      margin: 50px auto;
-      text-align: center;
-    }
-    h1 {
-      color: #444;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-    .restaurant-image {
-      max-width: 60%;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .social-icons {
-      margin-top: 20px;
-    }
-    .social-icons a {
-      display: inline-block;
-      margin: 0 10px;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-      border-radius: 50%;
-      background-color: #FF5733;
-      color: #fff;
-      font-size: 20px;
-      text-decoration: none;
-      transition: transform 0.3s ease;
-    }
-    .social-icons a:hover {
-      transform: scale(1.1);
-    }
-    .footer {
-      margin-top: 50px;
-      font-size: 14px;
-      color: #666;
-    }
-    /* Media Queries */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 24px;
-      }
-      p {
-        font-size: 16px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <img class="restaurant-image" src="images/logo_temp.png" alt="Restaurant Image">
-    <h1>We're cooking up something special.</h1>
-    <p>Coming Soon</p>
-    <p class="footer">© 2024 Coalspark. All rights reserved.</p>
-  </div>
+    <head>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</body>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-38503881-10"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'UA-38503881-10');
+	</script>
+	
+        <!--=============== basic  ===============-->
+        <meta charset="UTF-8">
+        <title>Coalspark Restaurants</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="robots" content="index,follow"/>
+        <meta name="keywords" content="Restaurants in Bangalore, Order food online, Home delivery Bangalore, Restaurants in Chennai, Home delivery Chennai, Restaurants in Madurai, Home delivery Madurai, Coalspark Online, Coalspark Food Order, Coalspark Restaurant, Arabian Restaurants in Bangalore, Arabian Restaurants in Chennai, Arabian Restaurants in Madurai, Multicuisine Restaurants Bangalore, Multicuisine Restaurants Chennai"/>
+        <meta name="description" content="Coalspark is a casual dine restaurant that serves a variety of delicious cuisines ranging from North Indian, Chinese, Seafood, and Arabian, which are of great taste and quality. The various ingredients that they use are fresh and instantly give a soul-satisfying taste to the diners. The casual decor of the restaurant is vibrant and beautiful. The pocket-friendly menu has been designed with utmost care to make sure that the flavor and spirit of the cuisines come in every dish they serve and it encompasses Barbeque dishes as well. Arabian dishes at Coalspark are undoubtedly the must try! Now you can order online from Coalspark directly, from its outlets across Chennai, Madurai, Bangalore and Qatar. Find reviews, menu and location of Coalspark, book a table and order online from us. Join the Coalspark Rewards Program, a specially designed loyalty program for the Coalspark Family and get amazing restaurant deals and offers on food!"/>
+
+
+        <!--=============== css  ===============--> 
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="css/reset.css">
+        <link type="text/css" rel="stylesheet" href="css/plugins.css">
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/color.css">
+        <link type="text/css" rel="stylesheet" href="css/et-line-font.css">
+        
+        <link rel="shortcut icon" href="images/favicon.png">
+        
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+    </head>
+    <body>
+    
+    	<div class="warningBanner" id="warningBanner" style="display: none"></div>
+    
+        <div class="loader"><img src="images/loader.svg" alt=""></div>
+        <!--================= main start ================-->
+        <div id="main">
+            <!--=============== header ===============-->   
+            <header>
+                <div class="header-inner">
+                    <div class="container">
+
+                        <!--navigation social links-->
+                        <div class="nav-social">
+                            <ul>
+                            	<li><a href="#" target="_blank" class="z_mail"><i class="fa fa-envelope"></i> hello@coalspark.com</a></li>
+                                <li><a href="#" target="_blank" class="z_phone"><i class="fa fa-phone"></i> 95047 44444</a></li>
+                            </ul>
+                        </div>
+                        <!--logo-->             
+                        <div class="logo-holder">
+                            <a href="index.html">
+                            <img src="images/logo.png" class="respimg logo-vis" alt="">
+                            <img src="images/logo-big.png" class="respimg logo-notvis" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!--header end-->
+            <!--=============== wrapper ===============-->  
+            <div id="wrapper">
+                <!--=============== Hero content ===============-->
+                <div class="content full-height hero-content">
+                    <div class="slideshow-container">
+                        <!-- slideshow -->  
+                        <div class="media-container" data-top-bottom="transform: translateY(300px);" data-bottom-top="transform: translateY(-300px);">
+                            <div class="video-container">
+                                <div class="bg mob-bg" style="background-image: url(images/featured-menu/dejaj-stuffing-sizzler.jpg)"></div>
+                                <div class="video-holder">
+                                    <iframe src="https://player.vimeo.com/video/294835671?autoplay=1&amp;loop=1" webkitallowfullscreen mozallowfullscreen allowfullscreen class="vimeo-player"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-title-holder">
+                            <div class="overlay"></div>
+                            <div class="hero-title">
+                                <h3>Welcome to Coalspark</h3>
+                                <h4>Multi Cuisine Restaurant</h4>
+                            </div>
+                        </div>
+                        <div class="hero-link">
+                            <a class="custom-scroll-link" href="#sec1"><i class="fa fa-angle-double-down"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!--hero end-->
+                <div class="content">
+                    <!--=============== About ===============-->
+                    <section class="about-section" id="sec1">
+                        <div class="container">
+                            <div class="row">
+                                <!--about text-->
+                                <div class="col-md-6">
+                                    <div class="section-title">
+                                        <h3>Discover</h3>
+                                        <h4 class="decor-title">Our story</h4>
+                                    </div>
+                                    <p class="readable-para">Coalspark is a standout destination in town for exceptional Arabic cuisine and BBQ, quickly earning its place as a popular choice for Middle Eastern flavors alongside Indian and Chinese favorites. Every dish is crafted with passion and precision, bringing authentic Arabian and Indian tastes that truly delight the palate.</p>
+                                    <p class="readable-para">We offer a diverse menu featuring North Indian, Chinese, Seafood, and Arabian specialties - each prepared using fresh ingredients to deliver rich, satisfying flavors. The restaurant’s vibrant and inviting ambiance enhances the dining experience, while our thoughtfully curated, pocket friendly menu ensures great taste in every bite. Our barbeque selections are a highlight, but it’s our signature Arabic dishes that truly define Coalspark and make it a must-visit for food lovers.</p>
+                                </div>
+                                <!-- about images-->
+                                <div class="col-md-6">
+                                    <div class="single-slider-holder">
+                                        <div class="customNavigation">
+                                            <a class="next-slide transition"><i class="fa fa-angle-right"></i></a>
+                                            <a class="prev-slide transition"><i class="fa fa-angle-left"></i></a>
+                                        </div>
+                                        <div class="single-slider owl-carousel">
+                                            <!-- 1 -->
+                                            <div class="item">
+                                                <img src="images/about/coalspark-bengaluru-service.jpg" class="respimg" alt="">
+                                            </div>
+                                            <!-- 2 -->
+                                            <div class="item">
+                                                <img src="images/about/coalspark-bengaluru-experience.jpg" class="respimg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!--=============== About 2 ===============-->
+                    <section class="about-section" style="padding-top: 0">
+                        <!-- triangle decoration-->
+                        <div class="triangle-decor">
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="single-slider-holder">
+                                        <div class="customNavigation">
+                                            <a class="next-slide transition"><i class="fa fa-angle-right"></i></a>
+                                            <a class="prev-slide transition"><i class="fa fa-angle-left"></i></a>
+                                        </div>
+                                        <div class="single-slider owl-carousel">
+                                            <!-- 1 -->
+                                            <div class="item">
+                                                <img src="images/about/coalspark-hyderabad-indoor-dining.jpg" class="respimg" alt="">
+                                            </div>
+                                            <!-- 2 -->
+                                            <div class="item">
+                                                <img src="images/about/coalspark-hyderabad-seating.jpg" class="respimg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" style="padding-top: 50px;">
+                                    <div class="section-title">
+                                        <h3>Locations</h3>
+                                        <h4 class="decor-title">Bangalore | Chennai | Hyderabad</h4>
+                                    </div>
+                                    <p class="readable-para">Driven by a strong commitment to quality and consistency, Coalspark has proudly expanded its presence across Bangalore, Chennai, and Hyderabad. At every location, we ensure that both food and service meet the highest standards, creating a dining experience that is always enjoyable and reliable.</p>
+
+                                    <p class="readable-para">We are deeply focused on preserving the authentic taste and quality of our cuisine, while also offering a refreshing and inviting ambience - perfect for everything from a quick, impromptu meal to a relaxed dining experience. For your special moments, Coalspark’s banquet hall provides the ideal venue, with dedicated arrangements to host and cater to all kinds of celebrations and events.</p>
+
+                                    <h3 style="font-size: 2em">We are open <b class="red-text">from 11:30 AM to 12 Midnight</b></h3>
+                                    
+                                    <center><a target="_new" href="https://api.whatsapp.com/send?phone=919743036444&text=Hello%2C%20I%20would%20like%20to%20reserve%20a%20seat%20at%20Coalspark%20Restaurant.%20Could%20you%20please%20help%20me%20with%20it%3F" class="link" style="text-decoration: none; cursor: pointer; border-radius: 4px; border: 1px solid; padding: 2px 6px; float: unset">Reserve a Table</a></center>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--section end-->
+
+
+                    
+                    <section class="parallax-section" id="sec4">
+                        <div class="bg bg-parallax" style="background-image:url(images/about/coalspark-hyderabad-experience.jpg)" data-top-bottom="transform: translateY(300px);" data-bottom-top="transform: translateY(-300px);"></div>
+                        <div class="overlay"></div>
+                        <div class="container">
+                            <h2>Glimpses of Coalspark</h2>
+                            <h3 style="color: #fff198">Why wait? Book a Table today!</h3>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="triangle-decor"></div>
+                        <div class="container">
+                            <div class="gallery-filters">
+                                <a href="#" class="gallery-filter gallery-filter-active"  data-filter="*">All</a>
+                                <a href="#" class="gallery-filter " data-filter=".menu">Menu </a>
+                                <a href="#" class="gallery-filter" data-filter=".rest">Restaurant</a>
+                            </div>
+                            <div class="bold-separator"><span></span></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="gallery-items three-coulms grid-small-pad popup-gallery">
+                                        <!-- 1 -->
+                                        <div class="gallery-item menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/hummus-bil-dejaj.jpg" title="Image information">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Hummus Bil Dejaj</span>
+                                                    <img  src="images/featured-menu/hummus-bil-dejaj.jpg" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 2 -->
+                                        <div class="gallery-item menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/fried-rice.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Fried Rice</span>
+                                                    <img  src="images/featured-menu/fried-rice.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 3 -->
+                                        <div class="gallery-item   menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/chicken-biriyani.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Chicken Biryani</span>
+                                                    <img  src="images/featured-menu/chicken-biriyani.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 4 -->
+                                        <div class="gallery-item  menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/kozi-samak.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Kozi Samak</span>
+                                                    <img  src="images/featured-menu/kozi-samak.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>  
+
+                                        <div class="gallery-item   menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/clope-mashwy.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Clope Mashwy</span>
+                                                    <img  src="images/featured-menu/clope-mashwy.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="gallery-item   menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/clope-samak-makli.jpg.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Clope Samak Makli</span>
+                                                    <img  src="images/featured-menu/clope-samak-makli.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="gallery-item   menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/dejaj-stuffing-sizzler.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Dejaj Stuffing Sizzler</span>
+                                                    <img  src="images/featured-menu/dejaj-stuffing-sizzler.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="gallery-item   menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/laham-barbeque-kebab.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Laham Barbeque Kebab</span>
+                                                    <img  src="images/featured-menu/laham-barbeque-kebab.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="gallery-item   menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/queso-dejaj-makli.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Queso Dejaj Makli</span>
+                                                    <img  src="images/featured-menu/queso-dejaj-makli.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="gallery-item   menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/special-tandoori-chicken.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Special Tandoori Chicken</span>
+                                                    <img  src="images/featured-menu/special-tandoori-chicken.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="gallery-item   menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/special-platter.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Special Platter</span>
+                                                    <img  src="images/featured-menu/special-platter.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="gallery-item   menu">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/featured-menu/rainbow-rubian.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <span class="item-name">Rainbow Rubian</span>
+                                                    <img  src="images/featured-menu/rainbow-rubian.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        
+
+
+                                        <!--
+                                        <div class="gallery-item rest">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="images/branches/coalspark_seating.jpg">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-search"></i>
+                                                    <img  src="images/branches/coalspark_seating.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        -->
+
+                                        <!--
+                                        <div class="gallery-item  ovid rest">
+                                            <div class="grid-item-holder">
+                                                <div class="box-item">
+                                                    <a href="https://player.vimeo.com/video/294836492" class="popup-vimeo">
+                                                    <span class="overlay"></span>
+                                                    <i class="fa fa-play-circle"></i>
+                                                    <img  src="images/gallery/guests-testimonials.jpg"   alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        -->
+
+
+                                    </div>
+                                    <!-- end gallery items -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                    <section id="coalsparkContactUs">
+                        <div class="container">
+
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="section-title">
+                                        <h3>Locate Coalspark</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bold-separator">
+                                <span></span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="store-card">
+                                        <div class="store-card__media">
+                                            <img src="images/branches/coalspark-bengaluru.jpg" alt="Coalspark Bengaluru">
+                                        </div>
+                                        <div class="store-card__body">
+                                            <h4>Coalspark Bengaluru</h4>
+                                            <p>Link Road, BDA Layout, HSR Layout, Bengaluru, Karnataka 560102</p>
+                                            <div class="store-card__actions">
+                                                <a class="store-card__phone" href="tel:+919743036444">+91 97430 36444</a>
+                                                <a class="store-card__directions" href="https://maps.app.goo.gl/sbjboxNyhGdft4JN6" target="_blank" rel="noopener noreferrer">
+                                                    Directions <i class="fa fa-map-marker"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="store-card">
+                                        <div class="store-card__media">
+                                            <img src="images/branches/coalspark-hyderabad.jpg" alt="Coalspark Hyderabad">
+                                        </div>
+                                        <div class="store-card__body">
+                                            <h4>Coalspark Hyderabad</h4>
+                                            <p>Gachibowli - Miyapur Road, Opp. Platina Mall, Banjara Basthi, Anjaiah Nagar, Gachibowli, Hyderabad 500084</p>
+                                            <div class="store-card__actions">
+                                                <a class="store-card__phone" href="tel:+919603844449">+91 96038 44449</a>
+                                                <a class="store-card__directions" href="https://maps.app.goo.gl/renoaeovG9Uu12Xd9" target="_blank" rel="noopener noreferrer">
+                                                    Directions <i class="fa fa-map-marker"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="store-card">
+                                        <div class="store-card__media">
+                                            <img src="images/branches/coalspark-chennai.jpg" alt="Coalspark Chennai">
+                                        </div>
+                                        <div class="store-card__body">
+                                            <h4>Coalspark Chennai</h4>
+                                            <p>Launching Soon</p>
+                                            <!--
+                                            <div class="store-card__actions">
+                                                <a class="store-card__phone" href="tel:+918428224224">8428 224 224</a>
+                                                <a class="store-card__directions" href="https://maps.app.goo.gl/BnxL6yTNKRxBw4hc6" target="_blank" rel="noopener noreferrer">
+                                                    Directions <i class="fa fa-map-marker"></i>
+                                                </a>
+                                            </div>
+                                            -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                </div>
+                <!--content end-->
+                <!--=============== footer ===============-->
+                <footer>
+                    <div class="footer-inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="footer-info">
+                                        <h4>Corporate Office</h4>
+                                        <div class="subcribe-form">
+                                            <ul class="footer-contacts">
+                                                <li><a href="#">Link Road, BDA Layout, HSR Layout, Bengaluru, Karnataka 560102</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--footer social links-->
+                                <div class="col-md-4">
+                                    <div class="footer-social">
+                                            <h3>Get Social</h3>
+                                            <ul>
+                                                <li><a class="footer-social__instagram" href="https://www.instagram.com/coalspark_india/" target="_new"><i class="fa fa-instagram"></i><span>@coalspark_india</span></a></li>
+                                            </ul>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="footer-info">
+                                        <h4>Guest Relations</h4>
+                                        <div class="subcribe-form">
+                                            <ul class="footer-contacts">
+                                                <li>
+                                                    <a href="#"><i class="fa fa-phone"></i> 95047 44444</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-envelope"></i> hello@coalspark.com</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- 
+                            <div class="bold-separator">
+                                <span></span>
+                            </div>
+                            -->
+
+                        </div>
+                    </div>
+                    <!--to top / privacy policy-->
+                    <div class="to-top-holder">
+                        <div class="container">
+                            <p> <span> &#169; Coalspark 2026 </span> All rights reserved.</p>
+                            <div class="to-top"><span>Back To Top </span><i class="fa fa-caret-up"></i></div>
+                        </div>
+                    </div>
+                </footer>
+                <!--footer end --> 
+            </div>
+            <!-- wrapper end -->
+        </div>
+        <!-- Main end -->
+        <div class="google-review-bar">
+            <button class="google-review-bar__close" type="button" aria-label="Close Google review card">X</button>
+            <a class="google-review-bar__link" href="https://maps.app.goo.gl/BnxL6yTNKRxBw4hc6" target="_blank" rel="noopener noreferrer" aria-label="View Coalspark reviews on Google Maps">
+            <div class="google-review-bar__logo" aria-hidden="true">
+                <span class="google-review-bar__logo-letter google-review-bar__logo-letter--blue">G</span>
+                <span class="google-review-bar__logo-letter google-review-bar__logo-letter--red">o</span>
+                <span class="google-review-bar__logo-letter google-review-bar__logo-letter--yellow">o</span>
+                <span class="google-review-bar__logo-letter google-review-bar__logo-letter--blue">g</span>
+                <span class="google-review-bar__logo-letter google-review-bar__logo-letter--green">l</span>
+                <span class="google-review-bar__logo-letter google-review-bar__logo-letter--red">e</span>
+            </div>
+            <div class="google-review-bar__content">
+                <div class="google-review-bar__rating-row">
+                    <span class="google-review-bar__score">4.6</span>
+                    <span class="google-review-bar__stars" aria-hidden="true">
+                        <span class="google-review-bar__stars-base">★★★★★</span>
+                        <span class="google-review-bar__stars-fill" style="width: 92%;">★★★★★</span>
+                    </span>
+                </div>
+                <div class="google-review-bar__meta">
+                    <span class="google-review-bar__reviews">Top Rated on Google</span>
+                    <span class="google-review-bar__source" translate="no" style="text-transform: none;">(7,384 Reviews)</span>
+                </div>
+            </div>
+            </a>
+        </div>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/plugins.js"></script>
+        <script>
+            window.googleReviewBarConfig = {
+                apiKey: "",
+                placeId: "",
+                textQuery: "Coalspark Multicuisine, 1 Vantage Building, Mahatma Gandhi Road, Adyar, Chennai",
+                mapsLink: "https://maps.app.goo.gl/BnxL6yTNKRxBw4hc6"
+            };
+        </script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+        
+        <script>
+        	//Handle "Get In Touch" error/success cases.
+        	var url = new URL(window.location.href);
+		var error_content = url.searchParams.get("error");
+		var success_content = url.searchParams.get("success");
+		
+		if(error_content != '' && error_content != null){
+			document.getElementById("contact_error_content").innerHTML = error_content;
+			
+			var x = document.getElementById("warningBanner");
+			x.style.display = "block";
+			x.innerHTML = error_content + '<a href="index.html#coalsparkContactUs" class="warningClose">X</a>';
+		}
+		else if(success_content != '' && success_content != null){
+			var x = document.getElementById("warningBanner");
+			x.style.display = "block";
+			x.innerHTML = success_content + '<a href="index.html#coalsparkContactUs" class="warningClose">X</a>';
+		}
+
+		(function () {
+			var header = document.querySelector('header');
+			var headerInner = document.querySelector('.header-inner');
+			var logoHolder = document.querySelector('.logo-holder');
+			var discoverSection = document.getElementById('sec1');
+
+			if (!header || !headerInner || !discoverSection) return;
+
+			function syncHeaderBackdrop() {
+				var trigger = discoverSection.getBoundingClientRect().top - header.offsetHeight;
+				var isSticky = trigger <= 0;
+
+				header.classList.toggle('sticky', isSticky);
+				if (logoHolder) {
+					logoHolder.classList.toggle('logo-sticky', isSticky);
+				}
+
+				if (isSticky) {
+					headerInner.style.background = 'linear-gradient(to bottom, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.84) 72%, rgba(255,255,255,0.35) 100%)';
+					headerInner.style.boxShadow = '0 8px 24px rgba(0,0,0,0.08)';
+				} else {
+					headerInner.style.background = 'transparent';
+					headerInner.style.boxShadow = 'none';
+				}
+			}
+
+			window.addEventListener('scroll', syncHeaderBackdrop, { passive: true });
+			window.addEventListener('resize', syncHeaderBackdrop);
+			window.addEventListener('load', syncHeaderBackdrop);
+			syncHeaderBackdrop();
+		})();
+        </script>
+        
+    </body>
 </html>
