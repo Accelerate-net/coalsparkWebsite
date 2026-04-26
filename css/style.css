@@ -2198,7 +2198,7 @@ footer {
 	width:100%;
 	position:relative;
 	z-index:5;
-	background:#191919;
+	background:#30403b;
 	border-bottom:20px solid #fff;
 }
 footer:before {
@@ -2210,7 +2210,7 @@ footer:before {
 	width:80px;
 	height:80px;
 	border-radius:100%;
-	background:#191919;
+	background:#30403b;
 }
 footer:after {
 	content:'';
