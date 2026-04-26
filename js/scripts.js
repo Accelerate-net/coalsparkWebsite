@@ -273,192 +273,194 @@ function initLambert() {
             }
         }
     });
-	// map ------------------
-    $("#map-canvas").gmap3({
-        action: "init",
-        marker: {
-			// markers and locations------------------
-            values: [ {
-                latLng: [ 12.9968605, 80.25618 ],
-                data: {
-                    "name": "Adyar",
-                    "address": "Address",
-                    "phone": "Mobile",
-                    "reservationURL": "url"
-                },
+    // map ------------------
+    if ($("#map-canvas").length && typeof google !== "undefined") {
+        $("#map-canvas").gmap3({
+            action: "init",
+            marker: {
+                // markers and locations------------------
+                values: [ {
+                    latLng: [ 12.9968605, 80.25618 ],
+                    data: {
+                        "name": "Adyar",
+                        "address": "Address",
+                        "phone": "Mobile",
+                        "reservationURL": "url"
+                    },
+                    options: {
+                        icon: "images/marker.png"
+                    }
+                }],
                 options: {
-                    icon: "images/marker.png"
-                }
-            }],
-            options: {
-                draggable: false
-            },
-            events: {
-                mouseover: function(a, b, c) {
-
-                    var info_window_content = '<div id="content">'+
-                                '<h1 id="firstHeading" class="firstHeading" style="font-size: 1.5em; text-transform: none; color: #e86565; margin: 0.8em 0;">'+c.data.name+'</h1>'+
-                                '<div id="bodyContent">'+
-                                '<p style="font-size: 1em; padding: 0;">'+c.data.address+'</p>'+
-                                '<p style="font-size: 1em; padding: 0; font-weight: bold;">Call '+c.data.phone+'</p>'+
-                                '<a style="border-radius: 4px; border: 1px solid #e86565; padding: 2px 8px; margin: 8px; display: inline-block; color: #e86565;" target="_new" href="'+c.data.reservationURL+'">Reserve Table</a>'+
-                                '</div>'+
-                                '</div>';
-
-                    var d = $(this).gmap3("get"), e = $(this).gmap3({
-                        get: {
-                            name: "infowindow"
-                        }
-                    });
-                    if (e) {
-                        e.open(d, a);
-                        e.setContent(info_window_content);
-                    } else $(this).gmap3({
-                        infowindow: {
-                            anchor: a,
-                            options: {
-                                content: info_window_content
+                    draggable: false
+                },
+                events: {
+                    mouseover: function(a, b, c) {
+    
+                        var info_window_content = '<div id="content">'+
+                                    '<h1 id="firstHeading" class="firstHeading" style="font-size: 1.5em; text-transform: none; color: #e86565; margin: 0.8em 0;">'+c.data.name+'</h1>'+
+                                    '<div id="bodyContent">'+
+                                    '<p style="font-size: 1em; padding: 0;">'+c.data.address+'</p>'+
+                                    '<p style="font-size: 1em; padding: 0; font-weight: bold;">Call '+c.data.phone+'</p>'+
+                                    '<a style="border-radius: 4px; border: 1px solid #e86565; padding: 2px 8px; margin: 8px; display: inline-block; color: #e86565;" target="_new" href="'+c.data.reservationURL+'">Reserve Table</a>'+
+                                    '</div>'+
+                                    '</div>';
+    
+                        var d = $(this).gmap3("get"), e = $(this).gmap3({
+                            get: {
+                                name: "infowindow"
                             }
-                        }
-                    });
+                        });
+                        if (e) {
+                            e.open(d, a);
+                            e.setContent(info_window_content);
+                        } else $(this).gmap3({
+                            infowindow: {
+                                anchor: a,
+                                options: {
+                                    content: info_window_content
+                                }
+                            }
+                        });
+                    }
+                }
+            },
+            map: {
+                options: {
+                    zoom: 14,
+                    zoomControl: true,
+                    mapTypeControl: true,
+                    scaleControl: true,
+                    scrollwheel: false,
+                    streetViewControl: true,
+                    draggable: true,
+                    styles: [ {
+                        featureType: "all",
+                        elementType: "labels.text",
+                        stylers: [ {
+                            weight: "0.04"
+                        }, {
+                            visibility: "simplified"
+                        } ]
+                    }, {
+                        featureType: "administrative.locality",
+                        elementType: "all",
+                        stylers: [ {
+                            hue: "#e86565"
+                        }, {
+                            saturation: 7
+                        }, {
+                            lightness: 19
+                        }, {
+                            visibility: "on"
+                        } ]
+                    }, {
+                        featureType: "administrative.locality",
+                        elementType: "labels.text",
+                        stylers: [ {
+                            hue: "#ffde00"
+                        } ]
+                    }, {
+                        featureType: "landscape",
+                        elementType: "all",
+                        stylers: [ {
+                            hue: "#ffffff"
+                        }, {
+                            saturation: -100
+                        }, {
+                            lightness: 100
+                        }, {
+                            visibility: "simplified"
+                        } ]
+                    }, {
+                        featureType: "poi",
+                        elementType: "all",
+                        stylers: [ {
+                            hue: "#e86565"
+                        }, {
+                            saturation: -100
+                        }, {
+                            lightness: 100
+                        }, {
+                            visibility: "off"
+                        } ]
+                    }, {
+                        featureType: "road",
+                        elementType: "geometry",
+                        stylers: [ {
+                            hue: "#e86565"
+                        }, {
+                            saturation: -93
+                        }, {
+                            lightness: 31
+                        }, {
+                            visibility: "simplified"
+                        } ]
+                    }, {
+                        featureType: "road",
+                        elementType: "labels",
+                        stylers: [ {
+                            hue: "#e86565"
+                        }, {
+                            saturation: -93
+                        }, {
+                            lightness: 31
+                        }, {
+                            visibility: "on"
+                        } ]
+                    }, {
+                        featureType: "road.arterial",
+                        elementType: "labels",
+                        stylers: [ {
+                            hue: "#e86565"
+                        }, {
+                            saturation: -93
+                        }, {
+                            lightness: -2
+                        }, {
+                            visibility: "simplified"
+                        } ]
+                    }, {
+                        featureType: "road.local",
+                        elementType: "geometry",
+                        stylers: [ {
+                            hue: "#e86565"
+                        }, {
+                            saturation: -90
+                        }, {
+                            lightness: -8
+                        }, {
+                            visibility: "simplified"
+                        } ]
+                    }, {
+                        featureType: "transit",
+                        elementType: "all",
+                        stylers: [ {
+                            hue: "#e86565"
+                        }, {
+                            saturation: 10
+                        }, {
+                            lightness: 69
+                        }, {
+                            visibility: "on"
+                        } ]
+                    }, {
+                        featureType: "water",
+                        elementType: "all",
+                        stylers: [ {
+                            hue: "#e86565"
+                        }, {
+                            saturation: -78
+                        }, {
+                            lightness: 67
+                        }, {
+                            visibility: "simplified"
+                        } ]
+                    } ]
                 }
             }
-        },
-        map: {
-            options: {
-                zoom: 14,
-                zoomControl: true,
-                mapTypeControl: true,
-                scaleControl: true,
-                scrollwheel: false,
-                streetViewControl: true,
-                draggable: true,
-                styles: [ {
-                    featureType: "all",
-                    elementType: "labels.text",
-                    stylers: [ {
-                        weight: "0.04"
-                    }, {
-                        visibility: "simplified"
-                    } ]
-                }, {
-                    featureType: "administrative.locality",
-                    elementType: "all",
-                    stylers: [ {
-                        hue: "#e86565"
-                    }, {
-                        saturation: 7
-                    }, {
-                        lightness: 19
-                    }, {
-                        visibility: "on"
-                    } ]
-                }, {
-                    featureType: "administrative.locality",
-                    elementType: "labels.text",
-                    stylers: [ {
-                        hue: "#ffde00"
-                    } ]
-                }, {
-                    featureType: "landscape",
-                    elementType: "all",
-                    stylers: [ {
-                        hue: "#ffffff"
-                    }, {
-                        saturation: -100
-                    }, {
-                        lightness: 100
-                    }, {
-                        visibility: "simplified"
-                    } ]
-                }, {
-                    featureType: "poi",
-                    elementType: "all",
-                    stylers: [ {
-                        hue: "#e86565"
-                    }, {
-                        saturation: -100
-                    }, {
-                        lightness: 100
-                    }, {
-                        visibility: "off"
-                    } ]
-                }, {
-                    featureType: "road",
-                    elementType: "geometry",
-                    stylers: [ {
-                        hue: "#e86565"
-                    }, {
-                        saturation: -93
-                    }, {
-                        lightness: 31
-                    }, {
-                        visibility: "simplified"
-                    } ]
-                }, {
-                    featureType: "road",
-                    elementType: "labels",
-                    stylers: [ {
-                        hue: "#e86565"
-                    }, {
-                        saturation: -93
-                    }, {
-                        lightness: 31
-                    }, {
-                        visibility: "on"
-                    } ]
-                }, {
-                    featureType: "road.arterial",
-                    elementType: "labels",
-                    stylers: [ {
-                        hue: "#e86565"
-                    }, {
-                        saturation: -93
-                    }, {
-                        lightness: -2
-                    }, {
-                        visibility: "simplified"
-                    } ]
-                }, {
-                    featureType: "road.local",
-                    elementType: "geometry",
-                    stylers: [ {
-                        hue: "#e86565"
-                    }, {
-                        saturation: -90
-                    }, {
-                        lightness: -8
-                    }, {
-                        visibility: "simplified"
-                    } ]
-                }, {
-                    featureType: "transit",
-                    elementType: "all",
-                    stylers: [ {
-                        hue: "#e86565"
-                    }, {
-                        saturation: 10
-                    }, {
-                        lightness: 69
-                    }, {
-                        visibility: "on"
-                    } ]
-                }, {
-                    featureType: "water",
-                    elementType: "all",
-                    stylers: [ {
-                        hue: "#e86565"
-                    }, {
-                        saturation: -78
-                    }, {
-                        lightness: 67
-                    }, {
-                        visibility: "simplified"
-                    } ]
-                } ]
-            }
-        }
-    });
+        });
+    }
 	// contact form------------------
     $("#contactform").submit(function() {
         var a = $(this).attr("action");
