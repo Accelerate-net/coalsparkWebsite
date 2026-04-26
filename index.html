@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-38503881-10"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
@@ -17,8 +15,8 @@
         <title>Coalspark Restaurants</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="robots" content="index,follow"/>
-        <meta name="keywords" content="Restaurants in Bangalore, Order food online, Home delivery Bangalore, Restaurants in Chennai, Home delivery Chennai, Restaurants in Madurai, Home delivery Madurai, Coalspark Online, Coalspark Food Order, Coalspark Restaurant, Arabian Restaurants in Bangalore, Arabian Restaurants in Chennai, Arabian Restaurants in Madurai, Multicuisine Restaurants Bangalore, Multicuisine Restaurants Chennai"/>
-        <meta name="description" content="Coalspark is a casual dine restaurant that serves a variety of delicious cuisines ranging from North Indian, Chinese, Seafood, and Arabian, which are of great taste and quality. The various ingredients that they use are fresh and instantly give a soul-satisfying taste to the diners. The casual decor of the restaurant is vibrant and beautiful. The pocket-friendly menu has been designed with utmost care to make sure that the flavor and spirit of the cuisines come in every dish they serve and it encompasses Barbeque dishes as well. Arabian dishes at Coalspark are undoubtedly the must try! Now you can order online from Coalspark directly, from its outlets across Chennai, Madurai, Bangalore and Qatar. Find reviews, menu and location of Coalspark, book a table and order online from us. Join the Coalspark Rewards Program, a specially designed loyalty program for the Coalspark Family and get amazing restaurant deals and offers on food!"/>
+        <meta name="keywords" content="Restaurants in Bangalore, Order food online, Home delivery Bangalore, Restaurants in Chennai, Home delivery Chennai, Coalspark Online, Coalspark Food Order, Coalspark Restaurant, Arabian Restaurants in Bangalore, Arabian Restaurants in Chennai, Multicuisine Restaurants Bangalore, Multicuisine Restaurants Chennai, Mandi Restaurants, BBQ Restaurant"/>
+        <meta name="description" content="Coalspark serves North Indian, Chinese, Seafood & Arabian cuisines with fresh ingredients, great ambience, and easy online ordering across multiple cities."/>
 
 
         <!--=============== css  ===============--> 
@@ -30,12 +28,8 @@
         <link type="text/css" rel="stylesheet" href="css/et-line-font.css">
         
         <link rel="shortcut icon" href="images/favicon.png">
-        
-        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
-    
-    	<div class="warningBanner" id="warningBanner" style="display: none"></div>
     
         <div class="loader"><img src="images/loader.svg" alt=""></div>
         <!--================= main start ================-->
@@ -71,7 +65,9 @@
                         <!-- slideshow -->  
                         <div class="media-container" data-top-bottom="transform: translateY(300px);" data-bottom-top="transform: translateY(-300px);">
                             <div class="video-container">
-                                <div class="bg mob-bg" style="background-image: url(images/featured-menu/dejaj-stuffing-sizzler.jpg)"></div>
+                                <!-- 
+                                <div class="bg mob-bg" style="background-image: url(images/featured-menu/dejaj-stuffing-sizzler.jpg)"></div> 
+                                -->
                                 <div class="video-holder">
                                     <iframe src="https://player.vimeo.com/video/294835671?autoplay=1&amp;loop=1" webkitallowfullscreen mozallowfullscreen allowfullscreen class="vimeo-player"></iframe>
                                 </div>
@@ -521,13 +517,6 @@
 
                         </div>
                     </div>
-                    <!--to top / privacy policy-->
-                    <div class="to-top-holder">
-                        <div class="container">
-                            <p> <span> &#169; Coalspark 2026 </span> All rights reserved.</p>
-                            <div class="to-top"><span>Back To Top </span><i class="fa fa-caret-up"></i></div>
-                        </div>
-                    </div>
                 </footer>
                 <!--footer end --> 
             </div>
@@ -573,23 +562,6 @@
         <script type="text/javascript" src="js/scripts.js"></script>
         
         <script>
-        	//Handle "Get In Touch" error/success cases.
-        	var url = new URL(window.location.href);
-		var error_content = url.searchParams.get("error");
-		var success_content = url.searchParams.get("success");
-		
-		if(error_content != '' && error_content != null){
-			document.getElementById("contact_error_content").innerHTML = error_content;
-			
-			var x = document.getElementById("warningBanner");
-			x.style.display = "block";
-			x.innerHTML = error_content + '<a href="index.html#coalsparkContactUs" class="warningClose">X</a>';
-		}
-		else if(success_content != '' && success_content != null){
-			var x = document.getElementById("warningBanner");
-			x.style.display = "block";
-			x.innerHTML = success_content + '<a href="index.html#coalsparkContactUs" class="warningClose">X</a>';
-		}
 
 		(function () {
 			var header = document.querySelector('header');
